@@ -15,7 +15,8 @@ build the plugin with this command. ::
 Copy the plugin to the Protege plugin directory. On my machine, this
 looks like this. ::
 
-    $ cp target/obo-annotations-plugin-0.0.1-SNAPSHOT.jar ../../bin//Protege-5.2.0/plugins/.
+    $ cp target/obo-annotations-plugin-0.0.2.jar ../../bin/Protege-5.2.0/plugins/.
+
 
 Start Protege. The first time it starts after you copy the plugin, it will
 say that it will install thje plugin and you will need to restart Protege.

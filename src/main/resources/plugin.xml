@@ -1,0 +1,20 @@
+<?xml version="1.0" ?>
+
+<plugin>
+
+    <extension id="HPODefinition" point="org.protege.editor.core.application.ViewComponent">
+        <label value="HPO annotation"/>
+        <class value="org.protege.hpoeditor.views.OBOAnnotationViewComponent"/>
+        <headerColor value="B1CAF6"/>
+        <category value="OBO"/>
+    </extension>
+
+    <extension id="menu.ObsoleteEntity" name="Make entity obsolete" point="org.protege.editor.core.application.EditorKitMenuAction">
+        <class value="org.protege.hpoeditor.menu.ObsoleteEntityMenuAction"/>
+        <name value="Make entity obsolete"/>
+        <toolTip value="Deprecates the selected entity and removes its defining axioms."/>
+        <path value="org.protege.editor.core.application.menu.EditMenu/SlotOBO-Z"/>
+        <editorKitId value="OWLEditorKit"/>
+    </extension>
+
+</plugin>

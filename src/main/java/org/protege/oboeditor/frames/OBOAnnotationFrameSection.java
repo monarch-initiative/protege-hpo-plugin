@@ -1,4 +1,4 @@
-package org.protege.hpoeditor.frames;
+package org.protege.oboeditor.frames;
 
 import org.protege.editor.owl.OWLEditorKit;
 import org.protege.editor.owl.model.OWLModelManager;

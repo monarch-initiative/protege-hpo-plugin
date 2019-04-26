@@ -1,11 +1,11 @@
-package org.protege.hpoeditor.renderer;
+package org.protege.oboeditor.renderer;
 
-import org.protege.hpoeditor.frames.OBOAnnotationsFrameSectionSummaryRow;
 import org.protege.editor.owl.OWLEditorKit;
 import org.protege.editor.owl.ui.frame.AbstractOWLFrameSectionRow;
 import org.protege.editor.owl.ui.frame.OWLFrameSection;
 import org.protege.editor.owl.ui.frame.OWLFrameSectionRow;
 import org.protege.editor.owl.ui.renderer.OWLCellRenderer;
+import org.protege.oboeditor.frames.OBOAnnotationsFrameSectionSummaryRow;
 import org.semanticweb.owlapi.model.OWLAnnotationAssertionAxiom;
 import org.semanticweb.owlapi.model.OWLAxiom;
 import org.semanticweb.owlapi.model.OWLEntity;
@@ -112,9 +112,9 @@ public class OBOFrameListRenderer  implements ListCellRenderer {
      * @param isSelected   True if the specified cell was selected.
      * @param cellHasFocus True if the specified cell has the focus.
      * @return A component whose paint() method will render the specified value.
-     * @see JList
-     * @see ListSelectionModel
-     * @see ListModel
+     * @see javax.swing.JList
+     * @see javax.swing.ListSelectionModel
+     * @see javax.swing.ListModel
      */
     public Component getListCellRendererComponent(JList list, Object value, int index, boolean isSelected,
                                                   boolean cellHasFocus) {

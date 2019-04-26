@@ -1,10 +1,12 @@
-package org.protege.hpoeditor.frames;
+package org.protege.oboeditor.frames;
 
 import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.Component;
 import java.awt.Dimension;
 import java.awt.EventQueue;
+import java.awt.FlowLayout;
+import java.awt.Font;
 import java.awt.Frame;
 import java.awt.Graphics;
 import java.awt.Graphics2D;
@@ -31,7 +33,9 @@ import java.util.Set;
 import javax.swing.AbstractAction;
 import javax.swing.ActionMap;
 import javax.swing.BorderFactory;
+import javax.swing.BoxLayout;
 import javax.swing.InputMap;
+import javax.swing.JButton;
 import javax.swing.JComponent;
 import javax.swing.JDialog;
 import javax.swing.JFrame;
@@ -39,6 +43,8 @@ import javax.swing.JList;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JScrollPane;
+import javax.swing.JTextArea;
+import javax.swing.JTextField;
 import javax.swing.JWindow;
 import javax.swing.KeyStroke;
 import javax.swing.ListCellRenderer;
@@ -54,8 +60,6 @@ import javax.swing.event.ListSelectionListener;
 import javax.swing.event.MouseInputListener;
 import javax.swing.plaf.basic.BasicListUI;
 
-import org.protege.hpoeditor.panel.DatabaseCrossReferencePanel;
-import org.protege.hpoeditor.renderer.OBOFrameListRenderer;
 import org.protege.editor.core.ProtegeApplication;
 import org.protege.editor.core.prefs.Preferences;
 import org.protege.editor.core.prefs.PreferencesManager;
@@ -91,6 +95,8 @@ import org.protege.editor.owl.ui.view.Copyable;
 import org.protege.editor.owl.ui.view.Cuttable;
 import org.protege.editor.owl.ui.view.Deleteable;
 import org.protege.editor.owl.ui.view.Pasteable;
+import org.protege.oboeditor.panel.DatabaseCrossReferencePanel;
+import org.protege.oboeditor.renderer.OBOFrameListRenderer;
 import org.semanticweb.owlapi.model.OWLAnnotationSubject;
 import org.semanticweb.owlapi.model.OWLAxiom;
 import org.semanticweb.owlapi.model.OWLEntity;
@@ -149,7 +155,7 @@ public class OBOAnnotationFrameList<R> extends MList implements LinkedObjectComp
 
     private LinkedObjectComponentMediator mediator;
 
-    private List<MListButton> inferredRowButtons;
+    private java.util.List<MListButton> inferredRowButtons;
 
     private OBOXrefButton axiomAnnotationButton;
 
@@ -277,8 +283,8 @@ public class OBOAnnotationFrameList<R> extends MList implements LinkedObjectComp
 	}
 
 
-	protected List<MListButton> getButtons(Object value) {
-        List<MListButton> buttons = new ArrayList<MListButton>(super.getButtons(value));
+	protected java.util.List<MListButton> getButtons(Object value) {
+        java.util.List<MListButton> buttons = new ArrayList<MListButton>(super.getButtons(value));
         if (value instanceof OWLFrameSectionRow) {
             OWLFrameSectionRow frameRow = (OWLFrameSectionRow) value;
             if (frameRow instanceof OBOAnnotationsFrameSectionRow) {
@@ -294,7 +300,7 @@ public class OBOAnnotationFrameList<R> extends MList implements LinkedObjectComp
             }
         }
         if (value instanceof AbstractOWLFrameSectionRow) {
-            List<MListButton> additional = ((AbstractOWLFrameSectionRow) value).getAdditionalButtons();
+            java.util.List<MListButton> additional = ((AbstractOWLFrameSectionRow) value).getAdditionalButtons();
             if (!additional.isEmpty()) {
                 buttons.addAll(additional);
             }
@@ -399,7 +405,7 @@ public class OBOAnnotationFrameList<R> extends MList implements LinkedObjectComp
     }
 
     private void refillRows() {
-        List<OWLFrameObject> rows = new ArrayList<OWLFrameObject>();
+        java.util.List<OWLFrameObject> rows = new ArrayList<OWLFrameObject>();
         for (OWLFrameSection<R, ? extends Object, ? extends Object> section : frame.getFrameSections()) {
             rows.add(section);
             for (OWLFrameSectionRow row : section.getRows()) {
@@ -416,7 +422,7 @@ public class OBOAnnotationFrameList<R> extends MList implements LinkedObjectComp
 
     public void handleDelete() {
         int[] selIndices = getSelectedIndices();
-        List<OWLOntologyChange> changes = new ArrayList<OWLOntologyChange>();
+        java.util.List<OWLOntologyChange> changes = new ArrayList<OWLOntologyChange>();
         for (int selIndex : selIndices) {
             Object val = getModel().getElementAt(selIndex);
             if (val instanceof OWLFrameSectionRow) {
@@ -721,7 +727,7 @@ public class OBOAnnotationFrameList<R> extends MList implements LinkedObjectComp
     public void drop(DropTargetDropEvent dtde) {
         if (dtde.getTransferable().isDataFlavorSupported(OWLObjectDataFlavor.OWL_OBJECT_DATA_FLAVOR)) {
             try {
-                List<OWLObject> object = (List<OWLObject>) dtde.getTransferable().getTransferData(OWLObjectDataFlavor.OWL_OBJECT_DATA_FLAVOR);
+                java.util.List<OWLObject> object = (java.util.List<OWLObject>) dtde.getTransferable().getTransferData(OWLObjectDataFlavor.OWL_OBJECT_DATA_FLAVOR);
                 OWLFrameObject<R, ? extends OWLAxiom, ? extends Object> frameObject;
                 frameObject = (OWLFrameObject<R, ? extends OWLAxiom, ? extends Object>) getModel().getElementAt(locationToIndex(dtde.getLocation()));
                 dtde.dropComplete(frameObject.dropObjects(object));
@@ -744,14 +750,14 @@ public class OBOAnnotationFrameList<R> extends MList implements LinkedObjectComp
     // Pasteable
     //
     // /////////////////////////////////////////////////////////////////////////////////////////////////////////
-    public boolean canPaste(List<OWLObject> objects) {
+    public boolean canPaste(java.util.List<OWLObject> objects) {
         if (getRootObject() == null) {
             return false;
         }
         return getSelectedValue() instanceof OWLFrameSection && ((OWLFrameSection) getSelectedValue()).canAcceptDrop(objects);
     }
 
-    public void pasteObjects(List<OWLObject> objects) {
+    public void pasteObjects(java.util.List<OWLObject> objects) {
         Object selObject = getSelectedValue();
         if (selObject instanceof OWLFrameSection) {
             OWLFrameSection section = (OWLFrameSection) selObject;
@@ -770,8 +776,8 @@ public class OBOAnnotationFrameList<R> extends MList implements LinkedObjectComp
         return getRootObject() != null && getSelectedIndex() != -1;
     }
 
-    public List<OWLObject> getObjectsToCopy() {
-        List<OWLObject> manipulatableObjects = new ArrayList<OWLObject>();
+    public java.util.List<OWLObject> getObjectsToCopy() {
+        java.util.List<OWLObject> manipulatableObjects = new ArrayList<OWLObject>();
         for (Object selObject : getSelectedValues()) {
             if (selObject instanceof OWLFrameSectionRow) {
                 OWLFrameSectionRow row = (OWLFrameSectionRow) selObject;
@@ -790,8 +796,8 @@ public class OBOAnnotationFrameList<R> extends MList implements LinkedObjectComp
         return !getCuttableObjects().isEmpty();
     }
 
-    private List<OWLObject> getCuttableObjects() {
-        List<OWLObject> manipulatableObjects = new ArrayList<OWLObject>();
+    private java.util.List<OWLObject> getCuttableObjects() {
+        java.util.List<OWLObject> manipulatableObjects = new ArrayList<OWLObject>();
         for (Object selObject : getSelectedValues()) {
             if (selObject instanceof OWLFrameSectionRow) {
                 OWLFrameSectionRow row = (OWLFrameSectionRow) selObject;
@@ -801,9 +807,9 @@ public class OBOAnnotationFrameList<R> extends MList implements LinkedObjectComp
         return manipulatableObjects;
     }
 
-    public List<OWLObject> cutObjects() {
-        List<OWLObject> manipulatableObjects = new ArrayList<OWLObject>();
-        List<OWLOntologyChange> changes = new ArrayList<OWLOntologyChange>();
+    public java.util.List<OWLObject> cutObjects() {
+        java.util.List<OWLObject> manipulatableObjects = new ArrayList<OWLObject>();
+        java.util.List<OWLOntologyChange> changes = new ArrayList<OWLOntologyChange>();
         for (Object selObject : getSelectedValues()) {
             if (selObject instanceof OWLFrameSectionRow) {
                 OWLFrameSectionRow row = (OWLFrameSectionRow) selObject;

@@ -1,4 +1,4 @@
-package org.protege.hpoeditor.frames;
+package org.protege.oboeditor.frames;
 
 import java.util.ArrayList;
 import java.util.Collection;

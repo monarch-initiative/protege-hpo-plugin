@@ -1,12 +1,11 @@
-package org.protege.hpoeditor.renderer;
+package org.protege.oboeditor.renderer;
 
-import org.protege.hpoeditor.frames.AbstractDatabaseCrossReferenceList;
-import org.protege.hpoeditor.util.OBOVocabulary;
 import org.semanticweb.owlapi.util.EscapeUtils;
 import org.protege.editor.owl.OWLEditorKit;
 import org.protege.editor.owl.model.OWLModelManager;
 import org.protege.editor.owl.ui.renderer.layout.*;
-
+import org.protege.oboeditor.frames.AbstractDatabaseCrossReferenceList;
+import org.protege.oboeditor.util.OBOVocabulary;
 import org.semanticweb.owlapi.model.*;
 
 import javax.swing.*;
@@ -282,7 +281,7 @@ public class OBOAnnotationCellRenderer extends PageCellRenderer {
     /**
      * Renders annotation values into a {@link Page}.
      * @param page The page that the value should be rendered into.
-     * @param annotations The annotation that contains the value to be rendered.
+     * @param annotation The annotation that contains the value to be rendered.
      * @param defaultForeground The default foreground color.
      * @param defaultBackground The default background color.
      * @param isSelected Whether or not the cell containing the annotation is selected.

@@ -1,10 +1,11 @@
-package org.protege.hpoeditor.panel;
+package org.protege.oboeditor.panel;
 
-import org.protege.hpoeditor.frames.DatabaseCrossReferenceList;
 import org.protege.editor.owl.OWLEditorKit;
 import org.protege.editor.owl.model.util.OWLAxiomInstance;
+import org.protege.editor.owl.ui.axiom.AxiomAnnotationsList;
 import org.protege.editor.owl.ui.renderer.OWLCellRenderer;
-
+import org.protege.oboeditor.frames.DatabaseCrossReferenceList;
+import org.protege.oboeditor.renderer.OBOAnnotationCellRenderer;
 
 import javax.swing.*;
 import java.awt.*;

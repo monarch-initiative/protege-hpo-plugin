@@ -1,4 +1,4 @@
-package org.protege.hpoeditor.menu;
+package org.protege.oboeditor.menu;
 
 import java.util.Set;
 

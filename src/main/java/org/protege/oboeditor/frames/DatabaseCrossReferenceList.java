@@ -1,7 +1,8 @@
-package org.protege.hpoeditor.frames;
+package org.protege.oboeditor.frames;
 
 import org.protege.editor.owl.OWLEditorKit;
 import org.protege.editor.owl.model.util.OWLAxiomInstance;
+import org.protege.editor.owl.ui.list.AbstractAnnotationsList;
 import org.semanticweb.owlapi.model.*;
 
 import java.util.ArrayList;
@@ -30,7 +31,7 @@ public class DatabaseCrossReferenceList extends AbstractDatabaseCrossReferenceLi
                 '}';
     }
 
-    protected List<OWLOntologyChange> getAddChanges(OWLAnnotation annot) {
+    protected java.util.List<OWLOntologyChange> getAddChanges(OWLAnnotation annot) {
         List<OWLOntologyChange> changes = new ArrayList<OWLOntologyChange>();
         final OWLAxiom oldAxiom = getRoot().getAxiom();
 

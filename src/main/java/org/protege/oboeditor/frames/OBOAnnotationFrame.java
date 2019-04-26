@@ -1,8 +1,8 @@
-package org.protege.hpoeditor.frames;
+package org.protege.oboeditor.frames;
 
-import org.protege.hpoeditor.util.OBOVocabulary;
 import org.protege.editor.owl.OWLEditorKit;
 import org.protege.editor.owl.ui.frame.AbstractOWLFrame;
+import org.protege.oboeditor.util.OBOVocabulary;
 import org.semanticweb.owlapi.model.OWLAnnotationSubject;
 import org.semanticweb.owlapi.model.OWLDataFactory;
 
@@ -22,8 +22,8 @@ public class OBOAnnotationFrame extends AbstractOWLFrame<OWLAnnotationSubject> {
         addSection(new OBOTermIDFrameSection(man, "Identifier", this));
         addSection(new OBOAnnotationFrameSection(man, this, "Alternate Identifier",
                 factory.getOWLAnnotationProperty(OBOVocabulary.OBO_ALTERNATE_ID.getIRI()), -1, false, true));
-        addSection(new OBOAnnotationFrameSection(man, this, "Namespace",
-                factory.getOWLAnnotationProperty(OBOVocabulary.OBO_NAMESPACE.getIRI()), 1, false, false));
+//        addSection(new OBOAnnotationFrameSection(man, this, "Namespace",
+//                factory.getOWLAnnotationProperty(OBOVocabulary.OBO_NAMESPACE.getIRI()), 1, false, false));
 		addSection(new OBOAnnotationFrameSection(man, this, "Definition",
                 factory.getOWLAnnotationProperty(OBOVocabulary.DEFINITION.getIRI()), 1, true, false));
         addSection(new OBOAnnotationFrameSection(man, this, "Exact synonym",

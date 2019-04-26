@@ -1,9 +1,8 @@
-package org.protege.hpoeditor.views;
+package org.protege.oboeditor.views;
 
-import org.protege.hpoeditor.frames.OBOAnnotationFrame;
-import org.protege.hpoeditor.frames.OBOAnnotationFrameList;
 import org.protege.editor.owl.ui.view.cls.AbstractOWLClassViewComponent;
-
+import org.protege.oboeditor.frames.OBOAnnotationFrame;
+import org.protege.oboeditor.frames.OBOAnnotationFrameList;
 import org.semanticweb.owlapi.model.OWLAnnotationSubject;
 import org.semanticweb.owlapi.model.OWLClass;
 
@@ -20,7 +19,7 @@ public class OBOAnnotationViewComponent extends AbstractOWLClassViewComponent {
     /**
      *
      */
-    private static final long serialVersionUID = -3036939007124710864L;
+    private static final long serialVersionUID = 1L;
     private OBOAnnotationFrameList<OWLAnnotationSubject> list;
 
 

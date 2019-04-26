@@ -1,4 +1,4 @@
-package org.protege.hpoeditor.frames;
+package org.protege.oboeditor.frames;
 
 import org.protege.editor.core.ui.list.MListButton;
 import org.protege.editor.owl.ui.renderer.OWLRendererPreferences;

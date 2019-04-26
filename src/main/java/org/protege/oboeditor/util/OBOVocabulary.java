@@ -1,4 +1,4 @@
-package org.protege.hpoeditor.util;
+package org.protege.oboeditor.util;
 
 import org.semanticweb.owlapi.model.IRI;
 

@@ -1,4 +1,4 @@
-package org.protege.hpoeditor.frames;
+package org.protege.oboeditor.frames;
 
 import org.protege.editor.core.ui.util.InputVerificationStatusChangedListener;
 import org.protege.editor.core.ui.util.VerifiedInputEditor;
@@ -7,6 +7,7 @@ import org.protege.editor.owl.model.OWLModelManager;
 import org.protege.editor.owl.model.hierarchy.OWLAnnotationPropertyHierarchyProvider;
 import org.protege.editor.owl.ui.editor.*;
 import org.protege.editor.owl.ui.selector.OWLAnnotationPropertySelectorPanel;
+import org.protege.oboeditor.panel.DatabaseCrossReferencePanel;
 import org.semanticweb.owlapi.model.OWLAnnotation;
 import org.semanticweb.owlapi.model.OWLAnnotationProperty;
 import org.semanticweb.owlapi.model.OWLAnnotationValue;

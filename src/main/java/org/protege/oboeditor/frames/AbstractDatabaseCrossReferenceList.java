@@ -1,4 +1,4 @@
-package org.protege.hpoeditor.frames;
+package org.protege.oboeditor.frames;
 
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
@@ -9,8 +9,6 @@ import java.util.List;
 import javax.swing.JOptionPane;
 import javax.swing.ListCellRenderer;
 
-import org.protege.hpoeditor.renderer.OBOAnnotationCellRenderer;
-import org.protege.hpoeditor.util.OBOVocabulary;
 import org.protege.editor.core.ui.list.MList;
 import org.protege.editor.core.ui.list.MListItem;
 import org.protege.editor.core.ui.list.MListSectionHeader;
@@ -18,6 +16,8 @@ import org.protege.editor.owl.OWLEditorKit;
 import org.protege.editor.owl.model.AnnotationContainer;
 import org.protege.editor.owl.model.OWLModelManager;
 import org.protege.editor.owl.ui.UIHelper;
+import org.protege.oboeditor.renderer.OBOAnnotationCellRenderer;
+import org.protege.oboeditor.util.OBOVocabulary;
 import org.semanticweb.owlapi.model.*;
 
 /**
@@ -121,7 +121,7 @@ public abstract class AbstractDatabaseCrossReferenceList<O extends AnnotationCon
     public void setRootObject(O root){
         this.root = root;
 
-        List<Object> data = new ArrayList<Object>();
+        java.util.List<Object> data = new ArrayList<Object>();
 
         data.add(header);
 
